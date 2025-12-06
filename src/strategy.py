@@ -575,7 +575,10 @@ class StrategyBacktest:
                 'win_rate': 0.0,
                 'num_trades': 0,
                 'avg_pnl': 0.0,
-                'avg_hold_days': 0.0
+                'avg_hold_days': 0.0,
+                'final_value': self.initial_capital,
+                'trades': [],
+                'portfolio_history': pd.DataFrame()
             }
         
         # Portfolio value time series
