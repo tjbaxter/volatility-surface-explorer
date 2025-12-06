@@ -50,6 +50,16 @@ st.markdown("""
         padding: 10px;
         border-radius: 5px;
     }
+    /* Fix metric text visibility */
+    .stMetric label {
+        color: #000000 !important;
+    }
+    .stMetric [data-testid="stMetricValue"] {
+        color: #000000 !important;
+    }
+    .stMetric [data-testid="stMetricDelta"] {
+        color: #000000 !important;
+    }
     </style>
 """, unsafe_allow_html=True)
 
