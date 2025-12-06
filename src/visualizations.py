@@ -45,10 +45,7 @@ def plot_3d_volatility_surface(surface_dict: Dict, spot_price: float, option_typ
             colorscale='Viridis',
             colorbar=dict(
                 title='Implied Vol (%)',
-                titleside='right',
-                tickmode='linear',
-                tick0=0,
-                dtick=5
+                titleside='right'
             ),
             hovertemplate='<b>Strike:</b> $%{x:.2f}<br>' +
                           '<b>DTE:</b> %{y:.0f} days<br>' +
