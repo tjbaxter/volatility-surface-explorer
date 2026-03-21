@@ -1,12 +1,12 @@
-# 🚀 Quick Start Guide
+#  Quick Start Guide
 
 Get the Volatility Surface Explorer up and running in 5 minutes!
 
 ## Prerequisites
 
-- Python 3.10 or higher
-- pip package manager
-- Internet connection (for fetching market data)
+-Python 3.10 or higher
+-pip package manager
+-Internet connection (for fetching market data)
 
 ## Installation Steps
 
@@ -36,12 +36,12 @@ pip install -r requirements.txt
 ```
 
 This will install:
-- streamlit (web interface)
-- pandas, numpy (data processing)
-- scipy (optimization)
-- plotly (visualizations)
-- yfinance (market data)
-- scikit-learn (utilities)
+-streamlit (web interface)
+-pandas, numpy (data processing)
+-scipy (optimization)
+-plotly (visualizations)
+-yfinance (market data)
+-scikit-learn (utilities)
 
 ### 4. Run the Application
 
@@ -53,54 +53,53 @@ The app will automatically open in your browser at `http://localhost:8501`
 
 ## First Time Usage
 
-### Tab 1: Volatility Surface 🌐
+### Tab 1: Volatility Surface 
 
 1. **Automatic Data Loading**: The app will fetch current SPY options data from Yahoo Finance
-   - If yfinance fails, it will generate synthetic data
-   - Data is cached for 1 hour
+   -If yfinance fails, it will generate synthetic data
+   -Data is cached for 1 hour
 
 2. **3D Surface Visualization**:
-   - Rotate: Click and drag
-   - Zoom: Scroll or pinch
-   - Red line shows ATM (At-The-Money) options
+   -Rotate: Click and drag
+   -Zoom: Scroll or pinch
+   -Red line shows ATM (At-The-Money) options
 
 3. **Volatility Smile**:
-   - Select an expiry from dropdown
-   - View IV vs Strike for that expiry
-   - Green = Calls, Red = Puts
+   -Select an expiry from dropdown
+   -View IV vs Strike for that expiry
+   -Green = Calls, Red = Puts
 
-### Tab 2: Greeks Dashboard 📊
+### Tab 2: Greeks Dashboard 
 
 1. **Select Expiry**: Choose expiry date from dropdown
 
 2. **View Greeks Charts**:
-   - **Delta**: Sensitivity to underlying price movement
-   - **Gamma**: Rate of change of delta
-   - **Vega**: Sensitivity to volatility changes
-   - **Theta**: Time decay (per day)
+   -**Delta**: Sensitivity to underlying price movement
+   -**Gamma**: Rate of change of delta
+   -**Vega**: Sensitivity to volatility changes
+   -**Theta**: Time decay (per day)
 
 3. **Top Gamma Options**: See options with highest gamma (good for gamma scalping)
 
-### Tab 3: Strategy Backtest 💰
+### Tab 3: Strategy Backtest 
 
 1. **Set Parameters**:
-   - Start Date: Beginning of backtest period
-   - End Date: End of backtest period
-   - Initial Capital: Starting portfolio value
+   -Start Date: Beginning of backtest period
+   -End Date: End of backtest period
 
 2. **Advanced Parameters** (optional):
-   - IV-RV Threshold: How much IV must exceed RV
-   - DTE Range: Days to expiration filter
-   - Max Positions: Maximum concurrent trades
+   -IV-RV Threshold: How much IV must exceed RV
+   -DTE Range: Days to expiration filter
+   -Max Positions: Maximum concurrent trades
 
-3. **Run Backtest**: Click "🚀 Run Backtest"
+3. **Run Backtest**: Click " Run Backtest"
 
 4. **View Results**:
-   - Performance metrics (Sharpe, Max DD, Win Rate)
-   - Cumulative P&L chart
-   - Trade distribution histogram
-   - Monthly returns heatmap
-   - Complete trade log (downloadable)
+   -Performance metrics (Sharpe, Max DD, Win Rate)
+   -Cumulative P&L chart
+   -Trade distribution histogram
+   -Monthly returns heatmap
+   -Complete trade log (downloadable)
 
 ## Testing Individual Modules
 
@@ -135,16 +134,16 @@ pip install -r requirements.txt
 ### Issue: yfinance fails to fetch data
 
 **Solution**: The app will automatically fall back to synthetic data. If you want to force synthetic data:
-- The data loader will detect failures and generate synthetic data
-- For backtesting, synthetic data is used by default
+-The data loader will detect failures and generate synthetic data
+-For backtesting, synthetic data is used by default
 
 ### Issue: App is slow
 
 **Solution**: 
-- First load may take longer (fetching data)
-- Data is cached for subsequent loads
-- Building SVI surface requires optimization (may take 10-30 seconds)
-- Backtest on long periods may take 1-2 minutes
+-First load may take longer (fetching data)
+-Data is cached for subsequent loads
+-Building SVI surface requires optimization (may take 10-30 seconds)
+-Backtest on long periods may take 1-2 minutes
 
 ### Issue: Port 8501 already in use
 
@@ -159,12 +158,12 @@ streamlit run app.py --server.port 8502
 
 ### Performance Metrics
 
-- **Total Return**: % gain/loss from start to end
-- **Sharpe Ratio**: Risk-adjusted returns (>1 is good, >2 is excellent)
-- **Max Drawdown**: Largest peak-to-trough decline
-- **Win Rate**: % of profitable trades
-- **Avg P&L per Trade**: Average profit/loss per trade
-- **Avg Hold Time**: Average days each position is held
+-**Total Return**: % gain/loss from start to end
+-**Sharpe Ratio**: Risk-adjusted returns (>1 is good, >2 is excellent)
+-**Max Drawdown**: Largest peak-to-trough decline
+-**Win Rate**: % of profitable trades
+-**Avg P&L per Trade**: Average profit/loss per trade
+-**Avg Hold Time**: Average days each position is held
 
 ### Strategy Logic
 
@@ -178,8 +177,8 @@ The backtest implements a **delta-hedged skew selling** strategy:
 ### Transaction Costs
 
 Built-in realistic costs:
-- Options: 12 bps (10 bps spread + 2 bps slippage)
-- Stock: 0.1 bps per trade
+-Options: 12 bps (10 bps spread + 2 bps slippage)
+-Stock: 0.1 bps per trade
 
 ## Next Steps
 
@@ -191,17 +190,17 @@ Built-in realistic costs:
 
 ## Tips for Best Results
 
-✅ **DO**:
-- Use realistic transaction costs
-- Test on multiple time periods
-- Understand the Greeks before trading
-- Start with small position sizes
+ **DO**:
+-Use realistic transaction costs
+-Test on multiple time periods
+-Understand the Greeks before trading
+-Start with small position sizes
 
-❌ **DON'T**:
-- Over-optimize on one backtest period
-- Ignore transaction costs
-- Trade without understanding the risks
-- Assume past results predict future performance
+ **DON'T**:
+-Over-optimize on one backtest period
+-Ignore transaction costs
+-Trade without understanding the risks
+-Assume past results predict future performance
 
 ## Getting Help
 
@@ -215,14 +214,13 @@ If you encounter issues:
 ## Performance Expectations
 
 On typical hardware:
-- **Data Loading**: 5-15 seconds (first time)
-- **Surface Building**: 10-30 seconds
-- **Backtest (6 months)**: 30-90 seconds
-- **Visualization Rendering**: 1-3 seconds
+-**Data Loading**: 5-15 seconds (first time)
+-**Surface Building**: 10-30 seconds
+-**Backtest (6 months)**: 30-90 seconds
+-**Visualization Rendering**: 1-3 seconds
 
 ---
 
-**Enjoy exploring the volatility surface!** 📈
+**Enjoy exploring the volatility surface!** 
 
-*Remember: This is for educational purposes only. Not financial advice.*
 

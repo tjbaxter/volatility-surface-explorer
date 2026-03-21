@@ -34,7 +34,7 @@ from src.visualizations import (
 # Page configuration
 st.set_page_config(
     page_title="Volatility Surface Explorer",
-    page_icon="📈",
+    page_icon="",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -64,7 +64,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # Sidebar
-st.sidebar.title("📈 About")
+st.sidebar.title(" About")
 st.sidebar.markdown("""
 **Volatility Surface Explorer & Strategy Backtest**
 
@@ -99,11 +99,10 @@ Built for quantitative trading portfolio
 
 ---
 
-*For educational purposes only. Past performance does not guarantee future results.*
 """)
 
 # Main title
-st.title("📈 Volatility Surface Explorer")
+st.title(" Volatility Surface Explorer")
 st.markdown("*Advanced options analytics and strategy backtesting for SPY*")
 
 # Data loading with caching
@@ -165,7 +164,7 @@ col4.metric("Data Date", quote_date.strftime('%Y-%m-%d'))
 st.markdown("---")
 
 # Create tabs
-tab1, tab2, tab3 = st.tabs(["🌐 Volatility Surface", "📊 Greeks Dashboard", "💰 Strategy Backtest"])
+tab1, tab2, tab3 = st.tabs([" Volatility Surface", " Greeks Dashboard", " Strategy Backtest"])
 
 # ==================== TAB 1: VOLATILITY SURFACE ====================
 with tab1:
@@ -435,7 +434,7 @@ with tab3:
             )
     
     # Run backtest button
-    if st.button("🚀 Run Backtest", type="primary"):
+    if st.button(" Run Backtest", type="primary"):
         
         # Load historical data
         with st.spinner("Loading historical data..."):
@@ -474,7 +473,7 @@ with tab3:
             )
         
         # Display results
-        st.success("✅ Backtest complete!")
+        st.success(" Backtest complete!")
         
         st.markdown("---")
         st.subheader("Performance Metrics")
@@ -564,7 +563,7 @@ with tab3:
             # Download trades
             csv = trades_df.to_csv(index=False)
             st.download_button(
-                label="📥 Download Trade Log (CSV)",
+                label=" Download Trade Log (CSV)",
                 data=csv,
                 file_name=f"backtest_trades_{start_date}_{end_date}.csv",
                 mime="text/csv"
@@ -578,7 +577,7 @@ st.markdown("""
 <div style='text-align: center; color: #666; padding: 20px;'>
     <p><strong>Volatility Surface Explorer v1.0</strong></p>
     <p>Built with Streamlit, Python, and quantitative finance expertise</p>
-    <p><em>Disclaimer: This tool is for educational and research purposes only. 
+    <p><em>Disclaimer: This tool is for research purposes only. 
     Not financial advice. Options trading involves significant risk.</em></p>
 </div>
 """, unsafe_allow_html=True)

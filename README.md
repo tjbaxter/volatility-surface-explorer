@@ -4,11 +4,11 @@ Volatility and options analysis toolkit for SPY, with an interactive Streamlit U
 
 ## Features
 
-- SVI calibration for implied volatility slices and surface interpolation
-- Black-Scholes pricing and Greeks (delta, gamma, vega, theta, rho)
-- Delta-hedged skew-selling backtest with transaction cost assumptions
-- Interactive visualizations for surface, smiles, Greeks, and PnL
-- Cached data loading with synthetic fallback when live data is unavailable
+-SVI calibration for implied volatility slices and surface interpolation
+-Black-Scholes pricing and Greeks (delta, gamma, vega, theta, rho)
+-Delta-hedged skew-selling backtest with transaction cost assumptions
+-Interactive visualizations for surface, smiles, Greeks, and PnL
+-Cached data loading with synthetic fallback when live data is unavailable
 
 ## Quick Start
 
@@ -52,10 +52,10 @@ with basic no-arbitrage checks during calibration.
 
 The strategy module models:
 
-- entry selection from IV-RV spread and DTE filters
-- single-contract option positions with daily delta hedge updates
-- simple stop-loss / take-profit exits
-- transaction costs for options and stock hedge legs
+-entry selection from IV-RV spread and DTE filters
+-single-contract option positions with daily delta hedge updates
+-simple stop-loss / take-profit exits
+-transaction costs for options and stock hedge legs
 
 ## Testing
 

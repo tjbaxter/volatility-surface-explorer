@@ -15,21 +15,21 @@ This project combines options analytics and a lightweight strategy backtest in a
 
 ## Backtest Assumptions
 
-- Candidate selection by IV-RV spread and DTE range
-- Daily hedge rebalancing
-- Fixed position sizing and max concurrent positions
-- Simplified transaction cost model
+-Candidate selection by IV-RV spread and DTE range
+-Daily hedge rebalancing
+-Fixed position sizing and max concurrent positions
+-Simplified transaction cost model
 
 ## Known Limitations
 
-- Limited realism in fill modeling and execution assumptions
-- Surface calibration quality depends on data quality and liquidity
-- Results are sensitive to parameter choices and sample period
-- No brokerage integration or live trading workflow
+-Limited realism in fill modeling and execution assumptions
+-Surface calibration quality depends on data quality and liquidity
+-Results are sensitive to parameter choices and sample period
+-brokerage integration or live trading workflow
 
 ## Suggested Next Steps
 
-- Add more robust calibration diagnostics and parameter sanity checks
-- Expand tests for edge cases in strategy accounting
-- Add scenario tests for stress periods
-- Improve reproducibility controls for data snapshots and seeds
+-Add more robust calibration diagnostics and parameter sanity checks
+-Expand tests for edge cases in strategy accounting
+-Add scenario tests for stress periods
+-Improve reproducibility controls for data snapshots and seeds
