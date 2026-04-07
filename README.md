@@ -1,16 +1,32 @@
 # Volatility Surface Explorer
 
-Volatility and options analysis toolkit for SPY, with an interactive Streamlit UI and a delta-hedged strategy backtest.
+Real-time implied volatility modeling and options strategy research for SPY, with SVI calibration, Greeks analytics, and a delta-hedged backtest.
+
+## Live Links
+
+- Interactive demo (GitHub Pages): `https://tjbaxter.github.io/volatility-surface-explorer/`
+- Source code: `https://github.com/tjbaxter/volatility-surface-explorer`
+
+> If the Pages link is not live yet, enable **Settings -> Pages -> Source: GitHub Actions** once, then re-run the latest workflow.
+
+## Why This Project
+
+This project demonstrates practical quant engineering skills:
+- Vol surface construction from noisy option chain data
+- Parametric calibration (SVI) with no-arbitrage sanity checks
+- Derivatives risk analytics (Greeks) for trade selection and monitoring
+- Strategy simulation under explicit transaction cost assumptions
+- Professional interactive reporting for research communication
 
 ## Features
 
--SVI calibration for implied volatility slices and surface interpolation
--Black-Scholes pricing and Greeks (delta, gamma, vega, theta, rho)
--Delta-hedged skew-selling backtest with transaction cost assumptions
--Interactive visualizations for surface, smiles, Greeks, and PnL
--Cached data loading with synthetic fallback when live data is unavailable
+- SVI calibration for implied volatility slices and surface interpolation
+- Black-Scholes pricing and Greeks (`delta`, `gamma`, `vega`, `theta`, `rho`)
+- Delta-hedged skew-selling backtest with configurable constraints
+- Interactive Plotly dashboards for surface, smile, Greeks, and PnL
+- Cached data loading with synthetic fallback when live data is unavailable
 
-## Quick Start
+## Run Locally (Full App)
 
 ```bash
 git clone https://github.com/tjbaxter/volatility-surface-explorer.git
@@ -19,6 +35,23 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 streamlit run app.py
+```
+
+## Interactive Demo Deployment
+
+This repository ships an automated GitHub Actions workflow that:
+1. Builds fresh options/surface outputs
+2. Exports standalone Plotly HTML views into `docs/`
+3. Deploys those pages to GitHub Pages
+
+Main files:
+- `scripts/export_static_demo.py`
+- `.github/workflows/deploy-demo-pages.yml`
+
+Run locally if you want to regenerate demo assets:
+
+```bash
+python scripts/export_static_demo.py
 ```
 
 ## Project Structure
@@ -33,6 +66,10 @@ volatility-surface-explorer/
 │   ├── greeks.py
 │   ├── strategy.py
 │   └── visualizations.py
+├── scripts/
+│   └── export_static_demo.py
+├── .github/workflows/
+│   └── deploy-demo-pages.yml
 ├── tests/
 │   └── test_strategy.py
 └── data/
@@ -40,22 +77,20 @@ volatility-surface-explorer/
 
 ## Technical Notes
 
-### Vol Surface
+### SVI Vol Surface
 
-The SVI parameterization is used per expiry:
+Per-expiry total variance is modeled as:
 
 `w(k) = a + b * (rho * (k - m) + sqrt((k - m)^2 + sigma^2))`
 
-with basic no-arbitrage checks during calibration.
+with sanity checks for non-negative variance and practical no-arbitrage constraints during fitting.
 
-### Backtest
+### Backtest Logic
 
-The strategy module models:
-
--entry selection from IV-RV spread and DTE filters
--single-contract option positions with daily delta hedge updates
--simple stop-loss / take-profit exits
--transaction costs for options and stock hedge legs
+- Enter short-put opportunities from IV-RV dislocation and DTE filters
+- Apply daily delta hedging with the underlying
+- Enforce simple stop-loss/take-profit exits
+- Account for options and hedge transaction costs in reported PnL
 
 ## Testing
 
@@ -68,7 +103,7 @@ pytest tests/test_strategy.py -v
 
 ## Disclaimer
 
-This repository is for research and software experimentation. It is not investment advice.
+For research and software experimentation only. Not investment advice.
 
 ## License
 
