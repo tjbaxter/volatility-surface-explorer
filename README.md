@@ -101,9 +101,9 @@ python -m src.strategy
 pytest tests/test_strategy.py -v
 ```
 
-## Disclaimer
+## Notes
 
-For research and software experimentation only. Not investment advice.
+Built for quantitative analytics, volatility modeling, and systematic strategy evaluation.
 
 ## License
 

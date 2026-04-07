@@ -230,7 +230,7 @@ def _write_html_shell(output_dir: Path, metadata: dict) -> None:
     </section>
 
     <footer>
-      Research and software demonstration only. Not investment advice.
+      Built with Python, Plotly, and SVI-based volatility surface modeling.
     </footer>
   </main>
 </body>
